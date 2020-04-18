@@ -1,0 +1,3 @@
+- Deploy to netlify
+- Figure out design of page
+- Make lists of stuff I want in the books, movies, albums pages
