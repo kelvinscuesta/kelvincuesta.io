@@ -3,7 +3,13 @@
 </template>
 
 <script>
-export default {};
+export default {
+  head() {
+    return {
+      title: 'Film Library | Kelvin Cuesta'
+    };
+  }
+};
 </script>
 
 <style></style>
