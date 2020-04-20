@@ -39,4 +39,7 @@ html {
   margin: 0;
   padding: 0px;
 }
+.loud-yellow:hover {
+  color: #ffff00;
+}
 </style>
