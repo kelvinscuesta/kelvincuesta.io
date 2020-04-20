@@ -1,18 +1,15 @@
 <template>
-  <div class="app flex-column avenir bg-washed-blue navy debug-grid-16">
-    <!-- <NavBar class="fl w-20 pa2" /> -->
-    <TestNavBar />
-    <nuxt class="pa4" />
+  <div class="app ph3 avenir bg-washed-blue navy debug-grid">
+    <Header class="pt2" />
+    <nuxt class="" />
   </div>
 </template>
 
 <script>
-// import NavBar from '~/components/NavBar';
-import TestNavBar from '~/components/TestNavBar.vue';
+import Header from '~/components/Header.vue';
 export default {
   components: {
-    // NavBar
-    TestNavBar
+    Header
   }
 };
 </script>
