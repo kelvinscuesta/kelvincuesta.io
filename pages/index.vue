@@ -1,10 +1,8 @@
 <template>
-  <div class="container">
-    <div>
-      <h1 class="title">
-        hi there I'm Kelvin!
-      </h1>
-    </div>
+  <div>
+    <h1>
+      hi there I'm Kelvin!
+    </h1>
   </div>
 </template>
 

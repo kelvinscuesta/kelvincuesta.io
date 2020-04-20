@@ -1,15 +1,18 @@
 <template>
-  <div class="app flex system-sans-serif">
-    <NavBar class="fl w-20 pa2" />
-    <nuxt class="fr w-80 pa2" />
+  <div class="app flex-column avenir bg-washed-blue navy debug-grid-16">
+    <!-- <NavBar class="fl w-20 pa2" /> -->
+    <TestNavBar />
+    <nuxt class="pa4" />
   </div>
 </template>
 
 <script>
-import NavBar from '~/components/NavBar';
+// import NavBar from '~/components/NavBar';
+import TestNavBar from '~/components/TestNavBar.vue';
 export default {
   components: {
-    NavBar
+    // NavBar
+    TestNavBar
   }
 };
 </script>
