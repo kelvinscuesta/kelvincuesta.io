@@ -1,5 +1,5 @@
 <template>
-  <a class="link dim link-visited blue" href="/"
+  <a class="link link-visited hover-yellow white" href="/"
     >Kelvin Cuesta, Software Engineer</a
   >
 </template>

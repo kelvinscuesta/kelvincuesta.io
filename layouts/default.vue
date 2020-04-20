@@ -1,15 +1,18 @@
 <template>
-  <div class="app ph3 avenir bg-washed-blue navy debug-grid">
-    <Header class="pt2" />
-    <nuxt class="" />
+  <div class="ph3 avenir bg-blue white">
+    <Header class="pv2 f6" />
+    <nuxt class="pv3" />
+    <Footer class="mt3" />
   </div>
 </template>
 
 <script>
 import Header from '~/components/Header.vue';
+import Footer from '~/components/Footer.vue';
 export default {
   components: {
-    Header
+    Header,
+    Footer
   }
 };
 </script>
