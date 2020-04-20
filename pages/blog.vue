@@ -1,5 +1,5 @@
 <template>
-  <div>Albums</div>
+  <p>Work in progress</p>
 </template>
 
 <script>

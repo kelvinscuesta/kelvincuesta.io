@@ -1,21 +1,7 @@
 <template>
-  <nav class="h-100 br bw2">
-    <ul class="list pl0 w4 flex flex-column">
-      <li><nuxt-link class="link dim" to="/">Home</nuxt-link></li>
-      <li>
-        <nuxt-link class="link  dim" to="/about">About me</nuxt-link>
-      </li>
-      <li>
-        <nuxt-link class="link dim" to="/books">Books</nuxt-link>
-      </li>
-      <li>
-        <nuxt-link class="link dim" to="/movies">Movies</nuxt-link>
-      </li>
-      <li>
-        <nuxt-link class="link dim" to="/albums">Albums</nuxt-link>
-      </li>
-    </ul>
+  <nav class="flex flex-column ">
+    <a class="link link-visited loud-yellow white pb1" href="/blog">Blog</a>
+    <a class="link link-visited loud-yellow white pb1" href="/books">Books</a>
+    <a class="link link-visited loud-yellow white pb1" href="/movies">Movies</a>
   </nav>
 </template>
-
-<style></style>

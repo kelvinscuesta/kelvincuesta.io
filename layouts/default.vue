@@ -1,15 +1,18 @@
 <template>
-  <div class="app flex system-sans-serif">
-    <NavBar class="fl w-20 pa2" />
-    <nuxt class="fr w-80 pa2" />
+  <div class="ph3 avenir bg-blue white">
+    <Header class="pv2 f6" />
+    <nuxt class="pv3" />
+    <Footer class="mt3" />
   </div>
 </template>
 
 <script>
-import NavBar from '~/components/NavBar';
+import Header from '~/components/Header.vue';
+import Footer from '~/components/Footer.vue';
 export default {
   components: {
-    NavBar
+    Header,
+    Footer
   }
 };
 </script>
@@ -35,5 +38,8 @@ html {
   box-sizing: border-box;
   margin: 0;
   padding: 0px;
+}
+.loud-yellow:hover {
+  color: #ffff00;
 }
 </style>
