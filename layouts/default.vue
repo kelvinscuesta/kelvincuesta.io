@@ -1,15 +1,15 @@
 <template>
-  <div class="app flex system-sans-serif">
-    <NavBar class="fl w-20 pa2" />
-    <nuxt class="fr w-80 pa2" />
+  <div class="app ph3 avenir bg-washed-blue navy debug-grid">
+    <Header class="pt2" />
+    <nuxt class="" />
   </div>
 </template>
 
 <script>
-import NavBar from '~/components/NavBar';
+import Header from '~/components/Header.vue';
 export default {
   components: {
-    NavBar
+    Header
   }
 };
 </script>

@@ -1,6 +1,4 @@
-<template>
-  <div>Albums</div>
-</template>
+<template> </template>
 
 <script>
 export default {};
