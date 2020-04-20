@@ -1,6 +1,6 @@
 <template>
-  <div class="ph3 avenir bg-blue white">
-    <Header class="pv2 f6" />
+  <div class="ph3 avenir bg-blue white flex flex-column flex-grow-1">
+    <Header class="pv2 f2" />
     <nuxt class="pv3" />
     <Footer class="mt3" />
   </div>
@@ -17,28 +17,43 @@ export default {
 };
 </script>
 <style>
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
 html {
   font-size: 16px;
   word-spacing: 1px;
-  -ms-text-size-adjust: 100%;
+  /* -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
   -moz-osx-font-smoothing: grayscale;
-  -webkit-font-smoothing: antialiased;
+  -webkit-font-smoothing: antialiased; */
   box-sizing: border-box;
 }
 
-.app {
-  width: 100vw;
-  height: 100vh;
+body {
+  font-size: 16px;
+  min-height: 100vh;
+  word-spacing: 1px;
+  display: flex;
+  flex-direction: column;
 }
 
-*,
-*:before,
-*:after {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0px;
+#__nuxt {
+  flex-grow: 1;
+  display: flex;
 }
+
+#__layout {
+  display: flex;
+  flex-grow: 1;
+}
+.flex-grow-1 {
+  flex-grow: 1;
+}
+
 .loud-yellow:hover {
   color: #ffff00;
 }
