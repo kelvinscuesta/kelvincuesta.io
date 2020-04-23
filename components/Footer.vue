@@ -1,7 +1,9 @@
 <template>
-  <footer class="bt pv3 f7">
-    <p>&copy; Made in Brooklyn</p>
-    <Contact />
+  <footer class="pv3 margin0-auto">
+    <p>
+      &copy; Made in Brooklyn
+    </p>
+    <Contact class="mt2" />
   </footer>
 </template>
 

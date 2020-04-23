@@ -1,8 +1,8 @@
 <template>
   <div class="ph3 avenir bg-blue white flex flex-column flex-grow-1">
-    <Header class="pv2 f2" />
-    <nuxt class="pv3" />
-    <Footer class="mt3" />
+    <Header class="pv3 f4-ns f3-m f3-l fw5" />
+    <nuxt class="pv3 f3-m f3-l flex-grow-3" />
+    <Footer class="mt1 f4-ns f3-m f3-l" />
   </div>
 </template>
 
@@ -26,10 +26,10 @@ export default {
 html {
   font-size: 16px;
   word-spacing: 1px;
-  /* -ms-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
   -moz-osx-font-smoothing: grayscale;
-  -webkit-font-smoothing: antialiased; */
+  -webkit-font-smoothing: antialiased;
   box-sizing: border-box;
 }
 
@@ -52,6 +52,14 @@ body {
 }
 .flex-grow-1 {
   flex-grow: 1;
+}
+
+.flex-grow-3 {
+  flex-grow: 3;
+}
+
+.margin0-auto {
+  margin: 0 auto;
 }
 
 .loud-yellow:hover {
