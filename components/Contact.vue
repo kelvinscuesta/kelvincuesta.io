@@ -40,7 +40,7 @@
     </a>
     <a
       class="link loud-yellow white h2 w2 mr3"
-      href="https://www.linkedin.com/in/kelvinscuesta/"
+      href="https://docs.google.com/document/d/1gte1j7zx5yYry9QdiE02Cm_I6dRooGZHsTzmGD3u0lo/edit?usp=sharing"
     >
       <svg
         version="1.1"
