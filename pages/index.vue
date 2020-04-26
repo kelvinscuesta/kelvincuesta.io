@@ -1,6 +1,6 @@
 <template>
   <main class="margin0-auto">
-    <h1 class="mb4 f2 measure lh-copy fw5">
+    <h1 class="mb4 f1 measure lh-copy fw5">
       Hi there, I'm Kelvin!
     </h1>
     <p class="mb4 measure lh-copy">
