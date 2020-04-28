@@ -14,7 +14,7 @@
         class="mb4 measure lh-copy"
       >
         <!-- "post._path" -->
-        <nuxt-link class="link link-visited loud-yellow white" :to="post._path">
+        <nuxt-link class="link link-visited loud-yellow white" :to="post._path" replace>
           <div>
             <p class="f3">{{ post.attributes.title }}</p>
             <p class="i f4">{{ post.attributes.date }}</p>
