@@ -8,6 +8,9 @@ export default {
   /*
    ** Headers of the page
    */
+  env: {
+    blogURL: process.env.PRODUCTION_BLOG_URL || 'development'
+  },
   head: {
     title: process.env.npm_package_name || '',
     meta: [
@@ -57,7 +60,7 @@ export default {
         include: path.resolve(__dirname, 'content'),
         loader: 'frontmatter-markdown-loader',
         options: {
-          mode: [FMMode.VUE_COMPONENT],
+          mode: [FMMode.VUE_COMPONENT, FMMode.META],
           markdownit: {
             html: true,
             linkify: true,
@@ -69,14 +72,16 @@ export default {
   },
   // this will generate the dynamic routes of the blog posts
   generate: {
-    routes: dynamicMarkDownRoutes()
+    routes: dynamicMarkDownRoutes
   }
 };
 
 // need to generate markdown paths for nuxt to build routes
 function dynamicMarkDownRoutes() {
   return [].concat(
+    // in map add this ${mdPath}
     ...markdownPaths.map(mdPath => {
+      console.log(mdPath);
       return glob
         .sync(`${mdPath}/*.md`, { cwd: 'content' })
         .map(filepath => `${mdPath}/${path.basename(filepath, '.md')}`);

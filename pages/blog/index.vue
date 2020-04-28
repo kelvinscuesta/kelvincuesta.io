@@ -13,6 +13,7 @@
         :key="post.attributes.title"
         class="mb4 measure lh-copy"
       >
+        <!-- "post._path" -->
         <nuxt-link class="link link-visited loud-yellow white" :to="post._path">
           <div>
             <p class="f3">{{ post.attributes.title }}</p>
@@ -27,21 +28,73 @@
 <script>
 // want to import all the markdown files
 export default {
-  async asyncData() {
-    const context = await require.context('~/content/blog', true, /\.md$/);
+  // eslint-disable-next-line require-await
+  asyncData() {
+    // eslint-disable-next-line no-unused-vars
+    /* const context = require.context('~/content/blog', true, /\.md$/);
     // require.context is a webpack function that can create a list of directories and modules
 
     // in our case we grab with context.keys() an array of file names
     // ['./2020-04-25-testing.md, './2020-04-26-my-first-blogpost.md']
+
+    // eslint-disable-next-line no-unused-vars
     const posts = context.keys().map(key => ({
       ...context(key),
       _path: `blog/${key.replace('.md', '').replace('./', '')}`
     }));
-    return { posts: posts.reverse() };
+    posts.reverse();
+    console.log(posts[0].vue.component);
+    return { posts }; */
   },
   data() {
-    return { posts: [] };
+    const context = require.context('~/content/blog', true, /\.md$/);
+    if (process.env.blogURL === 'development') {
+      const posts = context
+        .keys()
+        .map(key => ({
+          ...context(key),
+          _path: `blog/${key.replace('.md', '').replace('./', '')}`
+        }))
+        .reverse();
+      console.log(posts);
+      return { posts };
+    } else {
+      const posts = context
+        .keys()
+        .map(key => ({
+          ...context(key),
+          _path: `${key.replace('.md', '').replace('./', '')}`
+        }))
+        .reverse();
+      return { posts };
+    }
   },
+
+  // methods: {
+  //   getPermalink(post) {
+  //     console.log(process.env.blogURL);
+  //     if (process.env.blogURL === 'development') {
+  //       return `blog/${
+  //         post.meta.resourcePath
+  //           .split('\\')
+  //           .pop()
+  //           .split('/')
+  //           .pop()
+  //           .split('.')[0]
+  //       }`;
+  //     } else if (process.env.blogURL === 'production') {
+  //       return `${
+  //         post.meta.resourcePath
+  //           .split('\\')
+  //           .pop()
+  //           .split('/')
+  //           .pop()
+  //           .split('.')[0]
+  //       }`;
+  //     }
+  //   }
+  // },
+
   head() {
     return {
       title: 'Blog | Kelvin Cuesta'
