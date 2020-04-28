@@ -1,3 +1,4 @@
+import FMMode from 'frontmatter-markdown-loader/mode';
 const path = require('path');
 const glob = require('glob');
 const markdownPaths = ['blog'];
@@ -54,7 +55,15 @@ export default {
       config.module.rules.push({
         test: /\.md$/,
         include: path.resolve(__dirname, 'content'),
-        loader: 'frontmatter-markdown-loader'
+        loader: 'frontmatter-markdown-loader',
+        options: {
+          mode: [FMMode.VUE_COMPONENT],
+          markdownit: {
+            html: true,
+            linkify: true,
+            breaks: true
+          }
+        }
       });
     }
   },
