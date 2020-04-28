@@ -28,16 +28,20 @@
 // want to import all the markdown files
 export default {
   async asyncData() {
+    // eslint-disable-next-line no-unused-vars
     const context = await require.context('~/content/blog', true, /\.md$/);
     // require.context is a webpack function that can create a list of directories and modules
 
     // in our case we grab with context.keys() an array of file names
     // ['./2020-04-25-testing.md, './2020-04-26-my-first-blogpost.md']
-    const posts = context.keys().map(key => ({
+    // eslint-disable-next-line no-unused-vars
+    let posts = context.keys().map(key => ({
       ...context(key),
       _path: `blog/${key.replace('.md', '').replace('./', '')}`
     }));
-    return { posts: posts.reverse() };
+    posts = posts.reverse();
+    console.log(posts);
+    return { posts };
   },
   data() {
     return { posts: [] };

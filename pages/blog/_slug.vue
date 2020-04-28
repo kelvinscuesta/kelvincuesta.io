@@ -1,6 +1,6 @@
 <template>
   <div class="blogContainer margin0-auto measure lh-copy">
-    <h1 class="mb3 f1 measure lh-copy fw5">{{ title }}</h1>
+    <h1 class="mb3 f2 measure lh-copy fw5">{{ title }}</h1>
     <!-- <div class="blogContent mb2 measure lh-copy" v-html="post.html"></div> -->
     <component :is="blogPostComponent" class="mb2" />
     <!-- <blogPost class="blogPost" /> -->
