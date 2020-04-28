@@ -14,10 +14,7 @@
         class="mb4 measure lh-copy"
       >
         <!-- "post._path" -->
-        <nuxt-link
-          class="link link-visited loud-yellow white"
-          :to="getPermalink(post)"
-        >
+        <nuxt-link class="link link-visited loud-yellow white" :to="post._path">
           <div>
             <p class="f3">{{ post.attributes.title }}</p>
             <p class="i f4">{{ post.attributes.date }}</p>
@@ -51,42 +48,52 @@ export default {
   },
   data() {
     const context = require.context('~/content/blog', true, /\.md$/);
-    const posts = context
-      .keys()
-      .map(key => ({
-        ...context(key),
-        _path: `blog/${key.replace('.md', '').replace('./', '')}`
-      }))
-      .reverse();
-    console.log(posts);
-
-    return { posts };
-  },
-
-  methods: {
-    getPermalink(post) {
-      console.log(process.env.blogURL);
-      if (process.env.blogURL === 'development') {
-        return `blog/${
-          post.meta.resourcePath
-            .split('\\')
-            .pop()
-            .split('/')
-            .pop()
-            .split('.')[0]
-        }`;
-      } else if (process.env.blogURL === 'production') {
-        return `${
-          post.meta.resourcePath
-            .split('\\')
-            .pop()
-            .split('/')
-            .pop()
-            .split('.')[0]
-        }`;
-      }
+    if (process.env.blogURL === 'development') {
+      const posts = context
+        .keys()
+        .map(key => ({
+          ...context(key),
+          _path: `blog/${key.replace('.md', '').replace('./', '')}`
+        }))
+        .reverse();
+      console.log(posts);
+      return { posts };
+    } else {
+      const posts = context
+        .keys()
+        .map(key => ({
+          ...context(key),
+          _path: `${key.replace('.md', '').replace('./', '')}`
+        }))
+        .reverse();
+      return { posts };
     }
   },
+
+  // methods: {
+  //   getPermalink(post) {
+  //     console.log(process.env.blogURL);
+  //     if (process.env.blogURL === 'development') {
+  //       return `blog/${
+  //         post.meta.resourcePath
+  //           .split('\\')
+  //           .pop()
+  //           .split('/')
+  //           .pop()
+  //           .split('.')[0]
+  //       }`;
+  //     } else if (process.env.blogURL === 'production') {
+  //       return `${
+  //         post.meta.resourcePath
+  //           .split('\\')
+  //           .pop()
+  //           .split('/')
+  //           .pop()
+  //           .split('.')[0]
+  //       }`;
+  //     }
+  //   }
+  // },
 
   head() {
     return {
