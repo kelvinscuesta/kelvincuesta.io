@@ -69,7 +69,7 @@ export default {
   },
   // this will generate the dynamic routes of the blog posts
   generate: {
-    routes: dynamicMarkDownRoutes()
+    routes: dynamicMarkDownRoutes
   }
 };
 
