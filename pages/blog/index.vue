@@ -2,7 +2,7 @@
   <div class="margin0-auto measure lh-copy">
     <div class="mb4">
       <h1 class="f1 fw5">Blog</h1>
-      <p class="f4">
+      <p class="f3">
         I'm primarily interested in tradeoffs between technologies, but will
         write about random topics of interest when they come up!
       </p>
@@ -29,11 +29,14 @@
 export default {
   async asyncData() {
     const context = await require.context('~/content/blog', true, /\.md$/);
+    // require.context is a webpack function that can create a list of directories and modules
+
+    // in our case we grab with context.keys() an array of file names
+    // ['./2020-04-25-testing.md, './2020-04-26-my-first-blogpost.md']
     const posts = context.keys().map(key => ({
       ...context(key),
       _path: `blog/${key.replace('.md', '').replace('./', '')}`
     }));
-    // console.log('POSTS:', posts);
     return { posts: posts.reverse() };
   },
   data() {
