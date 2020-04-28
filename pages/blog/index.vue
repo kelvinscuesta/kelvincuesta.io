@@ -14,7 +14,10 @@
         class="mb4 measure lh-copy"
       >
         <!-- "post._path" -->
-        <nuxt-link class="link link-visited loud-yellow white" :to="post._path" replace>
+        <nuxt-link
+          class="link link-visited loud-yellow white"
+          :to="getPermalink(post)"
+        >
           <div>
             <p class="f3">{{ post.attributes.title }}</p>
             <p class="i f4">{{ post.attributes.date }}</p>
@@ -55,8 +58,22 @@ export default {
         _path: `blog/${key.replace('.md', '').replace('./', '')}`
       }))
       .reverse();
+    console.log(posts);
 
     return { posts };
+  },
+
+  methods: {
+    getPermalink(post) {
+      return `blog/${
+        post.meta.resourcePath
+          .split('\\')
+          .pop()
+          .split('/')
+          .pop()
+          .split('.')[0]
+      }`;
+    }
   },
 
   head() {
