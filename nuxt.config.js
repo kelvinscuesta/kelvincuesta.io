@@ -1,3 +1,8 @@
+import FMMode from 'frontmatter-markdown-loader/mode';
+const path = require('path');
+const glob = require('glob');
+const markdownPaths = ['blog'];
+
 export default {
   mode: 'universal',
   /*
@@ -46,6 +51,35 @@ export default {
     /*
      ** You can extend webpack config here
      */
-    extend(config, ctx) {}
+    extend(config, ctx) {
+      config.module.rules.push({
+        test: /\.md$/,
+        include: path.resolve(__dirname, 'content'),
+        loader: 'frontmatter-markdown-loader',
+        options: {
+          mode: [FMMode.VUE_COMPONENT],
+          markdownit: {
+            html: true,
+            linkify: true,
+            breaks: true
+          }
+        }
+      });
+    }
+  },
+  // this will generate the dynamic routes of the blog posts
+  generate: {
+    routes: dynamicMarkDownRoutes()
   }
 };
+
+// need to generate markdown paths for nuxt to build routes
+function dynamicMarkDownRoutes() {
+  return [].concat(
+    ...markdownPaths.map(mdPath => {
+      return glob
+        .sync(`${mdPath}/*.md`, { cwd: 'content' })
+        .map(filepath => `${mdPath}/${path.basename(filepath, '.md')}`);
+    })
+  );
+}

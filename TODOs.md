@@ -1,3 +1,4 @@
-- Deploy to netlify
-- Figure out design of page
-- Make lists of stuff I want in the books, movies, albums pages
+- Write a couple of blog posts that are worth keeping
+- Get the library functionality (look into having my own db or using goodreads api)
+- Get the film library functionality (look into having my own db of films or if letterboxd api works / scrape)
+- Think about V-html directive approach some more on the _slug page
