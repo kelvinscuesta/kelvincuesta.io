@@ -8,6 +8,9 @@ export default {
   /*
    ** Headers of the page
    */
+  env: {
+    blogURL: process.env.PRODUCTION_BLOG_URL || 'development'
+  },
   head: {
     title: process.env.npm_package_name || '',
     meta: [
